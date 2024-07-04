@@ -96,7 +96,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://scontent.fmnl4-2.fna.fbcdn.net/v/t39.30808-1/356639780_2583737778441546_6531503413753673075_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=g1HDdG7YM_kQ7kNvgESIXai&_nc_ht=scontent.fmnl4-2.fna&oh=00_AYAHgWrz78JFfHXoIKa8TmgkG2vN8X3EaKLOJ454N8_MqQ&oe=66856577
+avatar: assets\img\favicons\android-chrome-512x512.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
