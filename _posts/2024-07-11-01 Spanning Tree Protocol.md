@@ -80,7 +80,8 @@ A part of the process in building an STP topology is the election of which switc
 ### Bridge ID Structure
 A *Bridge ID* is a unique value that identifies each switch in an STP topology. It is used to determine which switch will be elected as a *Root Bridge*.
 
-![](https://i.imgur.com/44ptmFP.png){: .normal }
+![](https://i.imgur.com/erPzyBf.png)
+
 
 - **Bridge ID**
 	- Bridge Priority
@@ -90,10 +91,11 @@ A *Bridge ID* is a unique value that identifies each switch in an STP topology. 
 
 ## STP vs RSTP
 ### Port States
-![](https://i.imgur.com/JhKCrkb.png){: .normal }
+![](https://i.imgur.com/TOiZcBf.png)
+
 
 ### Port Roles
-![](https://i.imgur.com/lFllIBt.png){: .normal }
+![](https://i.imgur.com/TP8Jt4s.png)
 
 
 | **Port Roles**           | Definition                                                                     |
