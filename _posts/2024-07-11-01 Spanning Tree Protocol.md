@@ -29,7 +29,7 @@ STP is a layer-2 protocol that enables switches to become aware of other switche
 >- a switch that has been elected as a root.
 >
 >**Bridge Protocol Data Unit (BPDU)**
->- a packet that is used for network switches to process STP.
+>- a PDU that is used for network switches to process STP.
 >
 >**BPDU Types:**
 >1. Configuration BPDU
@@ -39,7 +39,6 @@ STP is a layer-2 protocol that enables switches to become aware of other switche
 >- a metric used for measuring the path to the root bridge.
 >
 >**System Priority**
->- a 4-bit value that indicates the hierarchy of switch in the STP topology (default value is 32768).
 >- the lowest value is elected as root (value between 0-61440, increments of 4096).
 >
 >**System ID Extension**
@@ -49,7 +48,7 @@ STP is a layer-2 protocol that enables switches to become aware of other switche
 >- details of the switch that has been elected as a root.
 >
 >**Local Bridge ID**
->- details of the switch that you are managing currently.
+>- details of the switch that is currently being managed.
 {: .prompt-tip }
 
 ## STP Timers
@@ -60,7 +59,7 @@ STP is a layer-2 protocol that enables switches to become aware of other switche
 >- time interval that BPDU is being advertised (default value is ***2 seconds***).
 >
 >**Max Age**
->- maximum time that a bridge port saves the BPDU information.
+>- maximum time that a bridge saves the BPDU information.
 >- **802.1D (STP)** = default value is 10 × Hello Timer = 20 seconds
 >- **802.1W (RSTP)** = default value is 6 seconds
 >
@@ -72,10 +71,10 @@ STP is a layer-2 protocol that enables switches to become aware of other switche
 {: .prompt-tip }
 
 # Root Bridge Election Process
-A part of the process in building an STP topology is the election of which switch will assume the role of the _Root Bridge_. The elected switch serves as a central reference point for all other switches in calculating the path cost and selecting the best path to the frame's destination. This election is crucial in the building loop-free network by knowing which port role (root port, designated port, blocking port, etc.) will be configured on each of the connected interface in a switch. 
+A part of the process of building an STP topology is the election of which switch will assume the role of the *Root Bridge*. The elected switch serves as a central reference point for all other switches in calculating the path cost and selecting the best path to the frame's destination. This election is crucial in building a loop-free network by knowing which port role (root port, designated port, blocking port, etc.) will be configured on each of the connected interfaces in a switch. 
 
 ## Election Criteria
-
+The criteria given below are an ordered list of how a *Root Bridge* is selected in a STP topology.
 1. Lowest ***Bridge Priority***.
 2. Lowest ***MAC Address***.
 
@@ -94,23 +93,25 @@ _Figure 1: Bridge ID Structure_
 
 # STP vs RSTP
 ## Port States
+The figure below illustrates the states that a switch port transitions through before reaching the forwarding state.
 ![](https://i.imgur.com/TOiZcBf.png)
 _Figure 2: STP and RSTP Port States_
 
 ## Port Roles
-![](https://i.imgur.com/TP8Jt4s.png)
+The figure below displays the roles assigned to each switch port in STP or RSTP.
+![](https://i.imgur.com/gHSUKf9.png)
 _Figure 3: STP and RSTP Port Roles_
 
 | **Port Roles**           | Definition                                                                     |
 | ------------------------ | ------------------------------------------------------------------------------ |
 | **Root Port (RP)**       | A port on a switch that has the closest path (Lowest Cost) to the Root Bridge. |
-| **Designated Port (DP)** | A port that can send the best BPDU on its segment.                             |
+| **Designated Port (DP)** | A port that can send the best BPDU frame on its segment.                       |
+| **Blocking Port**        | A port that does not send an BPDU frame.                                       |
 | **Alternate Port**       | A blocking port that serves as a backup of Root Port.                          |
 | **Backup Port**          | A blocking port that serves as a backup of Designated Port.                    |
 
 # STP Configuration
-In this section, will show few CLI commands on how an STP topology can be configured and modified. 
-
+This section provides several CLI commands on how to configure and modify an STP topology. 
 ## Checking the STP Topology
 
 ```console
@@ -124,8 +125,11 @@ show spanning-tree
 
 ```console
 configure terminal
-	spanning-tree mode [mst | pvst | rapid-pvst]
+	spanning-tree mode [pvst | rapid-pvst]
 ```
+
+>**Note:** On Cisco devices, PVST and Rapid-PVST are the default settings when configuring STP and RSTP.
+{: .prompt-tip }
 
 ## Bridge Priority Modification
 ```console
@@ -133,7 +137,7 @@ configure terminal
 	spanning-tree vlan [vlan-id] priority [0 - 61440]
 ```
 
->**Note:** Bridge Priority must be in incriments of 4096
+>**Note:** Bridge priority must be in increments of 4096.
 {: .prompt-tip }
 
 
