@@ -67,7 +67,11 @@ STP is a layer-2 protocol that enables switches to become aware of other switche
 >- amount of time that a port stays in a ***listening*** and ***learning*** state (default value is ***15 seconds per state***).
 >  
 >**STP Convergence Time (Approx.)**
->- around **50 seconds** = 30s (Forward Delay) + 20s (Time that the switch needs to realize that the link is either up/down)
+>- **802.1D (STP)**
+>	- around **50 seconds** = 30s (Forward Delay) + 20s (Time that the
+switch needs to realize that the link is either up/down)
+>- **802.1W (RSTP)**
+>	- from **milliseconds** to under **10 seconds**.
 {: .prompt-tip }
 
 # Root Bridge Election Process
