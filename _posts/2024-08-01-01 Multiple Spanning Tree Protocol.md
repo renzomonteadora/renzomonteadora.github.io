@@ -25,7 +25,7 @@ A switches that has been configured and assigned into specific group or instance
 >**MST Instances (MSTI)**
 >- MSTI is a group of multiple VLANs that share a single BPDU advertisement per MST instance, rather than generating a BPDU for each VLAN individually.
 >- MSTI instance values can range from 1 to 15.
-
+{: .prompt-tip }
 
 # MSTP Configuration
 This section will demonstrate the basic configuration of MSTP using the diagram below. Please note that all switches are initially configured with two additional VLANs (VLAN 10 and VLAN 20). The rest of the settings are at their default values, and MST has not yet been configured on the switches.
