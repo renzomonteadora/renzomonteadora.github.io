@@ -47,7 +47,7 @@ configure terminal
 	spanning-tree mode mst
 ```
 ### Checking MST Configuration
-After enabling MSTP, all VLANs are automatically assigned to Instance 0 by default, as illustrated in the picture below.
+Once MSTP is enabled, all VLANs are automatically assigned to Instance 0 by default, as shown in the picture below.
 ```console
 show spanning-tree mst configuration
 ```
@@ -55,7 +55,7 @@ show spanning-tree mst configuration
 
 
 ## MSTP Configuration
-We are going to assign VLAN 10 and VLAN 20 into different instances (Instance-1 and Instance-2) and a name to our MST region by using the following CLI command below.
+We will assign VLAN 10 and VLAN 20 to different instances (Instance 1 and Instance 2) and assign a name to our MST region using the following CLI commands.
 ```console
 configure terminal
 	spanning-tree mst configuration
@@ -65,13 +65,13 @@ configure terminal
 ```
 
 ### Checking MST Configuration
-After configure MSTP, the VLANs are now assigned into it respective instances.
+After configuring MSTP, the VLANs are now assigned to their respective instances.
 
 ![](https://i.imgur.com/V9npLWJ.png)
 
 ## MSTP Tuning
 ### MSTP Root Switch
-Similar to PVST, you can also configure which switch becomes a Root per instance by using either of the CLI commands below.
+Similar to PVST, you can configure which switch becomes the Root for each instance by using either of the CLI commands below.
 ```console
 configure terminal
 	spanning-tree mst [instance-number] root [primary | secondary]
